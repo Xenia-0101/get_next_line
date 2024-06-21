@@ -119,13 +119,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (sub);
 }
 
-/*
- _______________________________________________________________________________________
-|																						|
-|									List Functions										|
-|_______________________________________________________________________________________|
-
-*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                            list functions                                  */
+/*                                                                            */
+/* ************************************************************************** */
 
 t_list	*ft_lstnew(void *content)
 {
@@ -166,4 +164,21 @@ t_list	*ft_lstlast(t_list *lst)
 		t_lst = t_lst->next;
 	}
 	return (t_lst);
+}
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
+}
+
+void	ft_lstiter(t_list *lst)
+{
+	if (!lst || !lst->content)
+		return ;
+	if (lst->next)
+		ft_lstiter(lst->next);
+	printf("%s", (char *)lst->content);
 }
