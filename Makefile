@@ -1,5 +1,5 @@
 
-SOURCES := $(shell find . -name '*.c')
+SOURCES := $(shell find . -name '*.c' -maxdepth 1)
 # SOURCES = \
 
 OBJECTS = $(SOURCES:.c=.o)
